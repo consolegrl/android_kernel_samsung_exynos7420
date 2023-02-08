@@ -224,7 +224,8 @@ quiet_cmd_mkdir = MKDIR   $(patsubst $(objtree)/%,%,$@)
       cmd_mkdir = mkdir -p $@
 
 quiet_cmd_ihex  = IHEX    $@
-      cmd_ihex  = $(OBJCOPY) -Iihex -Obinary $< $@
+      cmd_ihex  = $(OBJCOPY) -Iihex -Obinary $< $@; \
+      		  $(OBJCOPY) -Iihex -Obinary $< $(srctree)/$@
 
 quiet_cmd_ihex2fw  = IHEX2FW $@
       cmd_ihex2fw  = $(objtree)/$(obj)/ihex2fw $< $@
